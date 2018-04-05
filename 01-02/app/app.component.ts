@@ -1,6 +1,16 @@
 import { Component } from '@angular/core';
 import { setTimeout } from 'timers';
 
+
+class Student {
+    public firstname: string;
+    public lastname: string;
+    constructor(firstname: string, lastname: string) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+}
+}
+
 @Component({
     selector: 'my-app',
     template: `
@@ -16,9 +26,9 @@ import { setTimeout } from 'timers';
 })
 export class AppComponent {
     students = [
-        { firstname: "Erik", lastname: "Meier" },
-        { firstname: "Max", lastname: "Müller" },
-        { firstname: "Tina", lastname: "Richter" },
-        { firstname: "Lucy", lastname: "Strong" }
-    ];
+        new Student("Erik", "Müller"),
+        new Student("Max", "Müller"),
+        new Student("Tina", "Richter"),
+        new Student("Lucy", "Strong")
+     ];
 }

@@ -6,13 +6,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
+var Student = (function () {
+    function Student(firstname, lastname) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
+    return Student;
+}());
 var AppComponent = (function () {
     function AppComponent() {
         this.students = [
-            { firstname: "Erik", lastname: "Meier" },
-            { firstname: "Max", lastname: "Müller" },
-            { firstname: "Tina", lastname: "Richter" },
-            { firstname: "Lucy", lastname: "Strong" }
+            new Student("Erik", "Müller"),
+            new Student("Max", "Müller"),
+            new Student("Tina", "Richter"),
+            new Student("Lucy", "Strong")
         ];
     }
     return AppComponent;
