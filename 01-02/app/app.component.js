@@ -8,14 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
-        this.students = ["Erik", "Max", "Tina", "Lucy"];
+        this.students = [
+            { firstname: "Erik", lastname: "Meier" },
+            { firstname: "Max", lastname: "Müller" },
+            { firstname: "Tina", lastname: "Richter" },
+            { firstname: "Lucy", lastname: "Strong" }
+        ];
     }
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "<div> \n    <ul>\n    <li *ngFor=\"let student of students\"> {{student}} </li>  \n    </ul> \n    </div>"
+        template: "\n    <div> \n        <ul>\n           <li *ngFor=\"let student of students\"> \n                {{student.firstname}}\n                {{student.lastname}}\n           </li>  \n        </ul> \n    </div>"
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
