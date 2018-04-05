@@ -1,12 +1,5 @@
 import { Component } from '@angular/core';
-import { setTimeout } from 'timers';
-
-
-class Student {
-    constructor(
-        public firstname: string, 
-        public lastname: string) { }
-}
+import { Student } from "./student";
 
 @Component({
     selector: 'my-app',
@@ -27,5 +20,5 @@ export class AppComponent {
         new Student("Max", "Müller"),
         new Student("Tina", "Richter"),
         new Student("Lucy", "Strong")
-     ];
+    ];
 }
