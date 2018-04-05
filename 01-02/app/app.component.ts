@@ -1,11 +1,20 @@
 import { Component } from '@angular/core';
+import { setTimeout } from 'timers';
 
 @Component({
     selector: 'my-app',
-    template: '<div>' + '<h1>{{title}} Hey My first Angular App! LOL</h1>' + 
-    '<p> This is ein Absatz. </p>' +
-    '</div>'
+    template: `
+    <div>
+    <h1> {{ title }} </h1>
+    </div>`
 })
 export class AppComponent {
-  title = "Hallo Welt"
+  title: string;
+
+  constructor() {
+      this.title = "Hallo Welt am Computerbildschirm";
+      setTimeout(function() {
+          this.title = "1234!"
+      }, 2500); // führe die Funktion nach 2500 ms aus
+  }
 }
