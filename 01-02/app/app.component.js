@@ -12,17 +12,16 @@ var core_1 = require("@angular/core");
 var timers_1 = require("timers");
 var AppComponent = (function () {
     function AppComponent() {
+        var _this = this;
         this.title = "Hallo Welt am Computerbildschirm";
-        timers_1.setTimeout(function () {
-            this.title = "1234!";
-        }, 2500); // führe die Funktion nach 2500 ms aus
+        timers_1.setTimeout(function () { _this.title = "123"; }, 2500);
     }
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n    <div>\n    <h1> {{ title }} </h1>\n    </div>"
+        template: "<div> \n    <h1> {{ title }} </h1> \n    </div>"
     }),
     __metadata("design:paramtypes", [])
 ], AppComponent);
