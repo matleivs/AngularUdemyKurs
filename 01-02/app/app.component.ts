@@ -4,15 +4,12 @@ import { setTimeout } from 'timers';
 @Component({
     selector: 'my-app',
     template: `<div> 
-    <h1> {{ title }} </h1> 
+    <ul>
+    <li *ngFor="let student of students"> {{student}} </li>  
+    </ul> 
     </div>`
 
 })
 export class AppComponent {
-  title: string;
-
-  constructor() {
-      this.title = "Hallo Welt am Computerbildschirm";
-      setTimeout(() => {this.title ="123";}, 2500);
-  }
+  students = [ "Erik", "Max", "Tina", "Lucy"];
 }
