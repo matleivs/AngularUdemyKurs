@@ -17,9 +17,8 @@ var AppComponent = (function () {
             new student_1.Student("Lucy", "Strong")
         ];
     }
-    AppComponent.prototype.onInputChange = function (event) {
-        // Type Casting the target so that typescript knows it's an htmlInputElement and can access its value.
-        this.inputValue = event.target.value;
+    AppComponent.prototype.onInputChange = function (inputValue) {
+        this.inputValue = inputValue;
     };
     AppComponent.prototype.onAddStudent = function () {
         this.students.push(new student_1.Student("Karl", "Moos"));
@@ -34,7 +33,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n    <div> \n    <h1> Title </h1> \n    <input type=\"text\" (keyup)=\"onInputChange($event)\" />\n    <p> Im Eingabefeld steht der Text: {{inputValue}}</p> \n    <button (click)=\"onAddStudent()\"> kLick mich , den button!</button>\n        <ul>\n           <li *ngFor=\"let student of students; let i = index\"> \n                {{student.firstname}}\n                {{student.lastname}}\n                <button (click)=\"onDeleteStudent(i)\">l\u00F6sche den Eintrag!</button>\n           </li>  \n        </ul> \n    </div>"
+        template: "\n    <div> \n    <h1> Title </h1> \n    <input type=\"text\" (keyup)=\"onInputChange($event.target.value)\" />\n    <p> Im Eingabefeld steht der Text: {{inputValue}}</p> \n    <button (click)=\"onAddStudent()\"> kLick mich , den button!</button>\n        <ul>\n           <li *ngFor=\"let student of students; let i = index\"> \n                {{student.firstname}}\n                {{student.lastname}}\n                <button (click)=\"onDeleteStudent(i)\">l\u00F6sche den Eintrag!</button>\n           </li>  \n        </ul> \n    </div>"
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

@@ -6,7 +6,7 @@ import { Student } from "./student";
     template: `
     <div> 
     <h1> Title </h1> 
-    <input type="text" (keyup)="onInputChange($event)" />
+    <input type="text" (keyup)="onInputChange($event.target.value)" />
     <p> Im Eingabefeld steht der Text: {{inputValue}}</p> 
     <button (click)="onAddStudent()"> kLick mich , den button!</button>
         <ul>
@@ -23,9 +23,8 @@ export class AppComponent {
 
     inputValue = "";
 
-    onInputChange(event: KeyboardEvent) {
-        // Type Casting the target so that typescript knows it's an htmlInputElement and can access its value.
-        this.inputValue = (<HTMLInputElement> event.target).value
+    onInputChange(inputValue: string) {
+        this.inputValue = inputValue
     }
 
     students = [
