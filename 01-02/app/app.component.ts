@@ -1,46 +1,37 @@
 import { Component } from '@angular/core';
-import { Student } from "./student";
 
 @Component({
     selector: 'my-app',
     template: `
     <div> 
-    <h1> Title </h1> 
-    <input type="text" (keyup)="onInputChange($event.target.value)" />
-    <p  *ngIf="inputValue != ''"> Im Eingabefeld steht der Text: {{inputValue}}</p> 
-    <button (click)="onAddStudent()"> kLick mich , den button!</button>
-        <ul>
-           <li *ngFor="let student of students; let i = index"> 
-                {{student.firstname}}
-                {{student.lastname}}
-                <button (click)="onDeleteStudent(i)">lösche den Eintrag!</button>
-           </li>  
-        </ul> 
-    </div>`
+        <button *ngIf="!counterRunning" (click)="onStartCounter()"> 
+        Starte die stoppuhr!
+        </button>
+        <p *ngIf="counterRunning"> {{currentTime}} </p>
+        <button *ngIf="counterRunning" (click)="onStopCounter()">
+        Stop!
+        </button>
+    </div>
+    `
 
 })
 export class AppComponent {
+    counterRunning = false;
+    currentTime = 0;
 
-    inputValue = "";
+    counterInterval: any;
 
-    onInputChange(inputValue: string) {
-        this.inputValue = inputValue
+    onStartCounter() {
+        this.counterRunning = true;
+        // setInterval method returns an object handling the current interval
+        this.counterInterval = setInterval(() => {
+            this.currentTime += 1;
+        }, 1000)
     }
 
-    students = [
-        new Student("Erik", "Müller"),
-        new Student("Max", "Müller"),
-        new Student("Tina", "Richter"),
-        new Student("Lucy", "Strong")
-    ];
-
-    onAddStudent() {
-        this.students.push(new Student("Karl", "Moos"))
-        alert("onAddStudent was called")
+    onStopCounter(){
+        this.counterRunning = false;
+        // clearInterval tells the interval to stop
+        clearInterval(this.counterInterval);
     }
-
-    onDeleteStudent(index: number) {
-        alert("onDeleteStudent was called")
-        this.students.splice(index, 1)
-         }
 }
