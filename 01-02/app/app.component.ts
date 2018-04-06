@@ -4,13 +4,8 @@ import { Component } from '@angular/core';
     selector: 'my-app',
     template: `
     <div> 
-        <button *ngIf="!counterRunning" (click)="onStartCounter()"> 
-        Starte die stoppuhr!
-        </button>
-        <p *ngIf="counterRunning"> {{currentTime}} </p>
-        <button *ngIf="counterRunning" (click)="onStopCounter()">
-        Stop!
-        </button>
+        <my-card title="Angular ist cool!"></my-card>
+        <my-card title="TypeScript ist cool!"></my-card>
     </div>
     `
 

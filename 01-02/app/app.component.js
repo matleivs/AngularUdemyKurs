@@ -30,7 +30,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n    <div> \n        <button *ngIf=\"!counterRunning\" (click)=\"onStartCounter()\"> \n        Starte die stoppuhr!\n        </button>\n        <p *ngIf=\"counterRunning\"> {{currentTime}} </p>\n        <button *ngIf=\"counterRunning\" (click)=\"onStopCounter()\">\n        Stop!\n        </button>\n    </div>\n    "
+        template: "\n    <div> \n        <my-card title=\"Angular ist cool!\"></my-card>\n        <my-card title=\"TypeScript ist cool!\"></my-card>\n    </div>\n    "
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
