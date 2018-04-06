@@ -9,6 +9,7 @@ var core_1 = require("@angular/core");
 var student_1 = require("./student");
 var AppComponent = (function () {
     function AppComponent() {
+        this.inputValue = "";
         this.students = [
             new student_1.Student("Erik", "Müller"),
             new student_1.Student("Max", "Müller"),
@@ -16,6 +17,10 @@ var AppComponent = (function () {
             new student_1.Student("Lucy", "Strong")
         ];
     }
+    AppComponent.prototype.onInputChange = function (event) {
+        console.log(event);
+        console.log("onInputChange was called");
+    };
     AppComponent.prototype.onAddStudent = function () {
         this.students.push(new student_1.Student("Karl", "Moos"));
         alert("onAddStudent was called");
@@ -29,7 +34,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n    <div> \n    <button (click)=\"onAddStudent()\"> kLick mich , den button!</button>\n        <ul>\n           <li *ngFor=\"let student of students; let i = index\"> \n                {{student.firstname}}\n                {{student.lastname}}\n                <button (click)=\"onDeleteStudent(i)\">l\u00F6sche den Eintrag!</button>\n           </li>  \n        </ul> \n    </div>"
+        template: "\n    <div> \n    <h1> Title </h1> \n    <input type=\"text\" (keyup)=\"onInputChange($event)\" />\n    <p> Im Eingabefeld steht der Text: {{inputValue}}</p> \n    <button (click)=\"onAddStudent()\"> kLick mich , den button!</button>\n        <ul>\n           <li *ngFor=\"let student of students; let i = index\"> \n                {{student.firstname}}\n                {{student.lastname}}\n                <button (click)=\"onDeleteStudent(i)\">l\u00F6sche den Eintrag!</button>\n           </li>  \n        </ul> \n    </div>"
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
