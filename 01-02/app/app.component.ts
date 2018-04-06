@@ -5,10 +5,12 @@ import { Student } from "./student";
     selector: 'my-app',
     template: `
     <div> 
+    <button (click)="onAddStudent()"> kLick mich , den button!</button>
         <ul>
-           <li *ngFor="let student of students"> 
+           <li *ngFor="let student of students; let i = index"> 
                 {{student.firstname}}
                 {{student.lastname}}
+                <button (click)="onDeleteStudent(i)">lösche den Eintrag!</button>
            </li>  
         </ul> 
     </div>`
@@ -21,4 +23,14 @@ export class AppComponent {
         new Student("Tina", "Richter"),
         new Student("Lucy", "Strong")
     ];
+
+    onAddStudent() {
+        this.students.push(new Student("Karl", "Moos"))
+        alert("onAddStudent was called")
+    }
+
+    onDeleteStudent(index: number) {
+        alert("onDeleteStudent was called")
+        this.students.splice(index, 1)
+         }
 }

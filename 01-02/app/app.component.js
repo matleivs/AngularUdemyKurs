@@ -16,12 +16,20 @@ var AppComponent = (function () {
             new student_1.Student("Lucy", "Strong")
         ];
     }
+    AppComponent.prototype.onAddStudent = function () {
+        this.students.push(new student_1.Student("Karl", "Moos"));
+        alert("onAddStudent was called");
+    };
+    AppComponent.prototype.onDeleteStudent = function (index) {
+        alert("onDeleteStudent was called");
+        this.students.splice(index, 1);
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n    <div> \n        <ul>\n           <li *ngFor=\"let student of students\"> \n                {{student.firstname}}\n                {{student.lastname}}\n           </li>  \n        </ul> \n    </div>"
+        template: "\n    <div> \n    <button (click)=\"onAddStudent()\"> kLick mich , den button!</button>\n        <ul>\n           <li *ngFor=\"let student of students; let i = index\"> \n                {{student.firstname}}\n                {{student.lastname}}\n                <button (click)=\"onDeleteStudent(i)\">l\u00F6sche den Eintrag!</button>\n           </li>  \n        </ul> \n    </div>"
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
