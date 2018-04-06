@@ -18,7 +18,9 @@ var AppComponent = (function () {
         ];
     }
     AppComponent.prototype.onInputChange = function (event) {
-        console.log(event.key);
+        // Type Casting the target so that typescript knows it's an htmlInputElement and can access its value.
+        var target = event.target;
+        console.log(target.value);
         console.log("onInputChange was called");
     };
     AppComponent.prototype.onAddStudent = function () {
