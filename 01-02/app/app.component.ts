@@ -25,9 +25,7 @@ export class AppComponent {
 
     onInputChange(event: KeyboardEvent) {
         // Type Casting the target so that typescript knows it's an htmlInputElement and can access its value.
-        var target = <HTMLInputElement> event.target
-        console.log(target.value)
-        console.log("onInputChange was called")
+        this.inputValue = (<HTMLInputElement> event.target).value
     }
 
     students = [
