@@ -23,8 +23,8 @@ export class AppComponent {
 
     inputValue = "";
 
-    onInputChange(event: any) {
-        console.log(event)
+    onInputChange(event: KeyboardEvent) {
+        console.log(event.key)
         console.log("onInputChange was called")
     }
 

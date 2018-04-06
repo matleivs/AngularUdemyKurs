@@ -18,7 +18,7 @@ var AppComponent = (function () {
         ];
     }
     AppComponent.prototype.onInputChange = function (event) {
-        console.log(event);
+        console.log(event.key);
         console.log("onInputChange was called");
     };
     AppComponent.prototype.onAddStudent = function () {
