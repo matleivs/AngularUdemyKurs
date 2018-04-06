@@ -16,11 +16,12 @@ var AppComponent = (function () {
         this.counterRunning = true;
         // setInterval method returns an object handling the current interval
         this.counterInterval = setInterval(function () {
-            _this.currentTime += 1;
-        }, 1000);
+            _this.currentTime += 0.1;
+        }, 100);
     };
     AppComponent.prototype.onStopCounter = function () {
         this.counterRunning = false;
+        this.currentTime = 0;
         // clearInterval tells the interval to stop
         clearInterval(this.counterInterval);
     };

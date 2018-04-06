@@ -25,12 +25,13 @@ export class AppComponent {
         this.counterRunning = true;
         // setInterval method returns an object handling the current interval
         this.counterInterval = setInterval(() => {
-            this.currentTime += 1;
-        }, 1000)
+            this.currentTime += 0.1;
+        }, 100)
     }
 
     onStopCounter(){
         this.counterRunning = false;
+        this.currentTime = 0;
         // clearInterval tells the interval to stop
         clearInterval(this.counterInterval);
     }
