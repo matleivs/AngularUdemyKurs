@@ -7,7 +7,7 @@ import { Student } from "./student";
     <div> 
     <h1> Title </h1> 
     <input type="text" (keyup)="onInputChange($event.target.value)" />
-    <p> Im Eingabefeld steht der Text: {{inputValue}}</p> 
+    <p  *ngIf="inputValue != ''"> Im Eingabefeld steht der Text: {{inputValue}}</p> 
     <button (click)="onAddStudent()"> kLick mich , den button!</button>
         <ul>
            <li *ngFor="let student of students; let i = index"> 
